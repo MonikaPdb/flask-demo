@@ -1,0 +1,25 @@
+<!doctype html>
+
+<!-- templates/hello.html tak se to musi jmenovat, btw takto se komentuje v html-->
+<!-- head je h;avicka, title je titulek, body bude videt finalne na te strance, h1 je heading, nadpis, a href je ??-->
+<!-- odsazni nehraje roli, proto je dulezita ukoncovaci znacka... jinakt toto je Jinja2 jazyk pro sablony-->
+<!-- to name | cap mi zaruci to, ze to prvni pismeno bude velke, protoze mam v pythonu filter cap s funkci capitalize, co se mi tu pouzije-->
+<!-- http://127.0.0.1:5000/hello/<i>petr/  pokud budu mit | save tak mi to vypise jmeno petr kurzivou - rozhodi mi to stranku, coz nebude dobre, protoze tim muze pak kdokoliv aplikovat html kod a upravovat tu stranku-->
+<!-- pro pridani obrazku = adresar static, viz kod dole, adresar musi but stejne jako je ten soubor hello.py -->
+<!-- html nehlasi zadnou chybu protoze je skaredyyyy -->
+
+
+<html>
+    <head>
+        <title>Hello from Flask</title>
+    </head>
+    <body>
+        {% if name %}
+            <h1>Hello {{ name | cap | safe }}!</h1>
+            <a href="{{ url_for('hello') }}">Go back home</a>
+        {% else %}
+            <h1>Hello, World!</h1>
+        {% endif %}
+		<img src="{{ url_for('static', filename='batman.jpg') }}" > 
+    </body>
+</html>
